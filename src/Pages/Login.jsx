@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import LCss from "./Css/Login.module.css";
 
 export default function Login() {
+  const [showUser, setUser] = useState({ email: "", password: "" });
+  const [showPassword, setPassword] = useState(false);
+
   const DataInp = (e) => {
     const name = e.target.name;
     const value = e.target.value;
