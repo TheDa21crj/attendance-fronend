@@ -1,12 +1,6 @@
-import React, { useState } from "react";
-
-// Css
-import LCss from "./Css/Login.module.css";
+import React from "react";
 
 export default function Login() {
-  const [showUser, setUser] = useState({ email: "", password: "" });
-  const [showPassword, setPassword] = useState(false);
-
   const DataInp = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -14,12 +8,7 @@ export default function Login() {
     setUser({ ...showUser, [name]: value });
   };
 
-  const PostData = async () => {
-    const { email, password } = showUser;
-
-    console.log("import.meta.env.VITE_Backend_Base");
-    console.log(import.meta.env.VITE_Backend_Base);
-  };
+  const PostData = async () => {};
   return (
     <div className={LCss.mDIv}>
       <p>Login</p>
