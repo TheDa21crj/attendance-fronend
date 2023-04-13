@@ -15,7 +15,6 @@ export default function Login() {
   };
 
   const PostData = async () => {
-    console.log("first");
     console.log(import.meta.env.VITE_Backend_Base);
   };
   return (
