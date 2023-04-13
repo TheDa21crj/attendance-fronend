@@ -10,6 +10,7 @@ import Footer from "./Components/Footer";
 
 // Components
 import Home from "./Pages/Home";
+import Login from "./Pages/Login";
 import Error from "./Pages/Error";
 import Register from "./Pages/Register";
 
