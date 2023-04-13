@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Css
 import LCss from "./Css/Login.module.css";
@@ -7,6 +8,8 @@ export default function Login() {
   const [showUser, setUser] = useState({ email: "", password: "" });
   const [showPassword, setPassword] = useState(false);
   const [showError, setError] = useState("");
+
+  const navigate = useNavigate();
 
   const DataInp = (e) => {
     const name = e.target.name;
@@ -38,6 +41,7 @@ export default function Login() {
       setError("Invalid Credentials");
     } else if (!r.errors) {
       setError("Success");
+      navigate("/");
     } else {
       setError("Unwanted Error");
     }
