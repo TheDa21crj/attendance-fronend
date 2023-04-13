@@ -15,7 +15,7 @@ export default function Login() {
   };
 
   const PostData = async () => {
-    console.log("import.meta.env.VITE_Backend_Base");
+    console.log("first");
   };
   return (
     <div className={LCss.mDIv}>
