@@ -1,5 +1,8 @@
 import React from "react";
 
+// css
+import NCss from "./Css/Nav.module.css";
+
 export default function Nav() {
-  return <div>Nav</div>;
+  return <div className={NCss.mDiv}>Nav</div>;
 }
