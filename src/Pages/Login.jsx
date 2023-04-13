@@ -16,6 +16,7 @@ export default function Login() {
 
   const PostData = async () => {
     const { email, password } = showUser;
+    console.log("import.meta.env.VITE_Backend_Base");
     console.log(import.meta.env.VITE_Backend_Base);
   };
   return (
