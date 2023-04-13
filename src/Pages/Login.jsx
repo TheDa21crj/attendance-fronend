@@ -6,6 +6,7 @@ import LCss from "./Css/Login.module.css";
 export default function Login() {
   const [showUser, setUser] = useState({ email: "", password: "" });
   const [showPassword, setPassword] = useState(false);
+  const [showError, setError] = useState("");
 
   const DataInp = (e) => {
     const name = e.target.name;
@@ -15,7 +16,31 @@ export default function Login() {
   };
 
   const PostData = async () => {
-    console.log(import.meta.env.VITE_Backend_Base);
+    const { email, password } = showUser;
+
+    const res = await fetch(
+      `${import.meta.env.VITE_Backend_Base}/api/user/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
+
+    const r = await res.json();
+
+    if (r.errors) {
+      setError("Invalid Credentials");
+    } else if (!r.errors) {
+      setError("Success");
+    } else {
+      setError("Unwanted Error");
+    }
   };
   return (
     <div className={LCss.mDIv}>
@@ -38,6 +63,7 @@ export default function Login() {
       <div>
         <button onClick={PostData}>Login</button>
       </div>
+      <p>{showError}</p>
     </div>
   );
 }
