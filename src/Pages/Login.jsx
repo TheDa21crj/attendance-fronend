@@ -7,8 +7,8 @@ export default function Login() {
   return (
     <div className={LCss.mDIv}>
       <p>Login</p>
-      <input type="text" name="" id="" />
-      <input type="text" name="" id="" />
+      <input type="email" name="" id="" placeholder="Email" />
+      <input type="password" name="" id="" placeholder="Password" />
     </div>
   );
 }
