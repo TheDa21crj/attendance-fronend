@@ -3,3 +3,19 @@
   padding: 0px;
   box-sizing: border-box;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: 100%;
+  max-width: 1700px;
+}
+
+.LinkStyle {
+  text-decoration: none;
+  color: inherit;
+}
