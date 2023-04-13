@@ -16,23 +16,14 @@ export default function Login() {
 
   const PostData = async () => {
     const { email, password } = showUser;
-    console.log(email);
-    console.log(password);
   };
   return (
     <div className={LCss.mDIv}>
       <p>Login</p>
-      <input
-        type="email"
-        name="email"
-        id=""
-        placeholder="Email"
-        onChange={DataInp}
-      />
+      <input type="email" name="email" placeholder="Email" onChange={DataInp} />
       <input
         type={showPassword ? "text" : "password"}
         name="password"
-        id=""
         placeholder="Password"
         onChange={DataInp}
       />
