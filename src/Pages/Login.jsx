@@ -8,7 +8,9 @@ export default function Login() {
     setUser({ ...showUser, [name]: value });
   };
 
-  const PostData = async () => {};
+  const PostData = async () => {
+    console.log("first");
+  };
   return (
     <div className={LCss.mDIv}>
       <p>Login</p>
