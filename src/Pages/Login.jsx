@@ -41,7 +41,7 @@ export default function Login() {
       setError("Invalid Credentials");
     } else if (!r.errors) {
       setError("Success");
-      navigate("/");
+      // navigate("/");
     } else {
       setError("Unwanted Error");
     }
