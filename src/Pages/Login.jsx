@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// Components
+import Start from "./../Components/Attendance/Start";
+
 // Css
 import LCss from "./Css/Login.module.css";
 
@@ -50,27 +53,34 @@ export default function Login() {
     }
   };
   return (
-    <div className={LCss.mDIv}>
-      <p>Login</p>
-      <input type="email" name="email" placeholder="Email" onChange={DataInp} />
-      <input
-        type={showPassword ? "text" : "password"}
-        name="password"
-        placeholder="Password"
-        onChange={DataInp}
-      />
-      <div
-        onClick={() => {
-          setPassword(!showPassword);
-        }}
-      >
-        {showPassword ? "Show Password" : "Hide Password"}
-      </div>
+    <>
+      <div className={LCss.mDIv}>
+        <p>Login</p>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={DataInp}
+        />
+        <input
+          type={showPassword ? "text" : "password"}
+          name="password"
+          placeholder="Password"
+          onChange={DataInp}
+        />
+        <div
+          onClick={() => {
+            setPassword(!showPassword);
+          }}
+        >
+          {showPassword ? "Show Password" : "Hide Password"}
+        </div>
 
-      <div>
-        <button onClick={PostData}>Login</button>
+        <div>
+          <button onClick={PostData}>Login</button>
+        </div>
+        <p>{showError}</p>
       </div>
-      <p>{showError}</p>
-    </div>
+    </>
   );
 }
