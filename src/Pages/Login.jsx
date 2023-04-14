@@ -29,7 +29,6 @@ export default function Login() {
       `${import.meta.env.VITE_Backend_Base}/api/user/login`,
       {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
