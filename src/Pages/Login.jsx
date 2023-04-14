@@ -55,7 +55,7 @@ export default function Login() {
   return (
     <>
       {showStart ? (
-        "hllo"
+        <Start email={showUser.email} />
       ) : (
         <div className={LCss.mDIv}>
           <p>Login</p>
