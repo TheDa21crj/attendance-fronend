@@ -1,5 +1,42 @@
 import React from "react";
 
-export default function Start() {
-  return <div>Start</div>;
+// Css
+import SCss from "./Css/Start.module.css";
+
+export default function Start(props) {
+  const setStartorStop = async (e, state) => {
+    try {
+      const res = await fetch(
+        `${
+          import.meta.env.VITE_Backend_Base
+        }/api/attendance/StartorStopAttendance`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: props.email,
+            value: state,
+          }),
+        }
+      );
+      const data = await res.json();
+      if (data) {
+        console.log(data);
+        return;
+      }
+    } catch (error) {
+      return;
+    }
+  };
+  return (
+    <div>
+      <div className={SCss.mDIv}>
+        <p onClick={(e) => setStartorStop(e, "Start")}>Start</p>
+        <p onClick={(e) => setStartorStop(e, "Stop")}>Stop</p>
+      </div>
+    </div>
+  );
 }
