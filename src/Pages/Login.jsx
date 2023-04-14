@@ -45,8 +45,8 @@ export default function Login() {
       setStart(false);
       setError("Invalid Credentials");
     } else if (!r.errors) {
-      setError("Success");
       setStart(true);
+      setError("Success");
     } else {
       setError("Unwanted Error");
       setStart(false);
@@ -54,33 +54,37 @@ export default function Login() {
   };
   return (
     <>
-      <div className={LCss.mDIv}>
-        <p>Login</p>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={DataInp}
-        />
-        <input
-          type={showPassword ? "text" : "password"}
-          name="password"
-          placeholder="Password"
-          onChange={DataInp}
-        />
-        <div
-          onClick={() => {
-            setPassword(!showPassword);
-          }}
-        >
-          {showPassword ? "Show Password" : "Hide Password"}
-        </div>
+      {showStart ? (
+        "hllo"
+      ) : (
+        <div className={LCss.mDIv}>
+          <p>Login</p>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={DataInp}
+          />
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            onChange={DataInp}
+          />
+          <div
+            onClick={() => {
+              setPassword(!showPassword);
+            }}
+          >
+            {showPassword ? "Show Password" : "Hide Password"}
+          </div>
 
-        <div>
-          <button onClick={PostData}>Login</button>
+          <div>
+            <button onClick={PostData}>Login</button>
+          </div>
+          <p>{showError}</p>
         </div>
-        <p>{showError}</p>
-      </div>
+      )}
     </>
   );
 }
