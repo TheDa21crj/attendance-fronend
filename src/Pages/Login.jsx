@@ -8,6 +8,7 @@ export default function Login() {
   const [showUser, setUser] = useState({ email: "", password: "" });
   const [showPassword, setPassword] = useState(false);
   const [showError, setError] = useState("");
+  const [showStart, setStart] = useState(false);
 
   const navigate = useNavigate();
 
@@ -38,12 +39,14 @@ export default function Login() {
     const r = await res.json();
 
     if (r.errors) {
+      setStart(false);
       setError("Invalid Credentials");
     } else if (!r.errors) {
       setError("Success");
-      navigate("/");
+      setStart(true);
     } else {
       setError("Unwanted Error");
+      setStart(false);
     }
   };
   return (
