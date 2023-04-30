@@ -41,6 +41,8 @@ export default function Login() {
 
     const r = await res.json();
 
+    console.log(r);
+
     if (r.errors) {
       setStart(false);
       setError("Invalid Credentials");
