@@ -6,6 +6,9 @@ import axios from "axios";
 // state
 import AuthContext from "./../../store/auth-context";
 
+// css
+import Lc from "./Css/List.module.css";
+
 export default function List() {
   const authCtx = useContext(AuthContext);
 
@@ -23,7 +26,9 @@ export default function List() {
 
   return (
     <div>
-      <div onClick={viewAtt}>List</div>
+      <p className={Lc.Refresh} onClick={viewAtt}>
+        Refresh
+      </p>
     </div>
   );
 }
