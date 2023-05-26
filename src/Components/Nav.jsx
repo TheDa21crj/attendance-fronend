@@ -22,7 +22,7 @@ export default function Nav() {
       )}
       {authCtx.isLoggedIn ? (
         <Link to="/MyAccount" className="LinkStyle">
-          <img src={authCtx.pic} alt="" className={NCss.imgMA} />
+          <img src={authCtx.user.pic} alt="" className={NCss.imgMA} />
         </Link>
       ) : (
         <Link to="/Login" className="LinkStyle">
