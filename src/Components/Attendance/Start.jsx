@@ -9,6 +9,8 @@ import SCss from "./Css/Start.module.css";
 export default function Start(props) {
   const authCtx = useContext(AuthContext);
 
+  console.log(authCtx);
+
   const setStartorStop = async (e, state) => {
     try {
       const res = await fetch(
