@@ -68,6 +68,7 @@ export default function Login() {
             res.data.token,
             10800000
           );
+
           redirect("/Attendence");
         }
       } catch (err) {
