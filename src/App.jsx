@@ -13,19 +13,26 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Error from "./Pages/Error";
 import Register from "./Pages/Register";
+import Attendence from "./Pages/Attendence";
 
 // state
 import AuthContext from "./store/auth-context";
 
 function App() {
+  const authCtx = useContext(AuthContext);
   return (
     <BrowserRouter>
       <Layout>
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
+          {authCtx.isLoggedIn && (
+            <Route path="/Attendence" element={<Attendence />} />
+          )}
+          {!authCtx.isLoggedIn && (
+            <Route path="/Register" element={<Register />} />
+          )}
+          {!authCtx.isLoggedIn && <Route path="/Login" element={<Login />} />}
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
