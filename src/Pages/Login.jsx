@@ -65,8 +65,9 @@ export default function Login() {
             10800000
           );
           if (authCtx.target == null) {
-            redirect("/dashboard");
+            redirect("/");
           } else {
+            console.log(authCtx.target);
             redirect(`/${authCtx.target}`);
             authCtx.settarget(null);
           }
