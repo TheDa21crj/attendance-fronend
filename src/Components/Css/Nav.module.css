@@ -5,3 +5,8 @@
   align-items: center;
   box-shadow: 2px 2px 10px lightgray;
 }
+
+.imgMA {
+  background-color: #fff;
+  cursor: pointer;
+}
