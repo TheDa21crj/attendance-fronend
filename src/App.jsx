@@ -18,6 +18,9 @@ import Attendence from "./Pages/Attendence";
 // state
 import AuthContext from "./store/auth-context";
 
+// defaults baseURL
+axios.defaults.baseURL = "http://localhost:5000/";
+
 function App() {
   const authCtx = useContext(AuthContext);
   return (
