@@ -31,6 +31,10 @@ export default function List() {
     }
   };
 
+  useEffect(() => {
+    viewAtt();
+  }, []);
+
   return (
     <div>
       <p className={Lc.Refresh} onClick={viewAtt}>
