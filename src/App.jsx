@@ -13,6 +13,7 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Error from "./Pages/Error";
 import Register from "./Pages/Register";
+import MyAccount from "./Pages/MyAccount";
 import Attendence from "./Pages/Attendence";
 
 // state
@@ -34,6 +35,9 @@ function App() {
           <Route path="/" element={<Home />} />
           {authCtx.isLoggedIn && (
             <Route path="/Attendence" element={<Attendence />} />
+          )}
+          {authCtx.isLoggedIn && (
+            <Route path="/Attendence" element={<MyAccount />} />
           )}
           {!authCtx.isLoggedIn && (
             <Route path="/Register" element={<Register />} />
