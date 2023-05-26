@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 // state
-import AuthContext from "./../store/auth-context";
+import AuthContext from "./../../store/auth-context";
 
 // Css
 import SCss from "./Css/Start.module.css";
