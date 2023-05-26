@@ -12,8 +12,6 @@ export default function Attendence() {
   };
   return (
     <div>
-      Home
-      <br />
       <br />
       <br />
       <p>Name = {authCtx.user.name}</p>
@@ -21,6 +19,9 @@ export default function Attendence() {
       <br />
       <br />
       <p onClick={logout}>Logout</p>
+      <br />
+      <br />
+      <br />
     </div>
   );
 }
