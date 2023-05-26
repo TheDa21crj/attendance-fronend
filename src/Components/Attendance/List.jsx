@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 
 // axios
 import axios from "axios";
@@ -10,6 +10,8 @@ import AuthContext from "./../../store/auth-context";
 import Lc from "./Css/List.module.css";
 
 export default function List() {
+  const [view, setView] = useState([]);
+
   const authCtx = useContext(AuthContext);
 
   const viewAtt = async () => {
@@ -18,7 +20,11 @@ export default function List() {
         headers: { Authorization: `${authCtx.token}` },
       });
 
-      console.log(res.data);
+      if (res.data.message) {
+        setView(res.data.message);
+      } else {
+        console.log("Error");
+      }
     } catch (error) {
       console.log(error);
     }
