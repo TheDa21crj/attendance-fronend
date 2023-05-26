@@ -15,18 +15,19 @@ export default function Nav() {
         Nav
       </Link>
 
-      {authCtx.isLoggedIn ? (
+      {authCtx.isLoggedIn && (
         <Link to="/Attendence" className="LinkStyle">
           Attendence
+        </Link>
+      )}
+      {authCtx.isLoggedIn ? (
+        <Link to="/MyAccount" className="LinkStyle">
+          <img src={authCtx.pic} alt="" />
+          MyAccount
         </Link>
       ) : (
         <Link to="/Login" className="LinkStyle">
           Login/Register
-        </Link>
-      )}
-      {authCtx.isLoggedIn && (
-        <Link to="/Attendence" className="LinkStyle">
-          Attendence
         </Link>
       )}
     </div>
