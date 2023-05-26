@@ -24,6 +24,11 @@ export default function Nav() {
           Login/Register
         </Link>
       )}
+      {authCtx.isLoggedIn && (
+        <Link to="/Attendence" className="LinkStyle">
+          Attendence
+        </Link>
+      )}
     </div>
   );
 }
