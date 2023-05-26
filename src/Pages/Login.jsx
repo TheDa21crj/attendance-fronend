@@ -4,8 +4,9 @@ import AuthContext from "./../store/auth-context";
 import axios from "axios";
 
 export default function Login() {
-  const redirect = useNavigate();
   const authCtx = useContext(AuthContext);
+
+  const redirect = useNavigate();
 
   const [showUser, setUser] = useState({ Email: "", Password: "" });
 
