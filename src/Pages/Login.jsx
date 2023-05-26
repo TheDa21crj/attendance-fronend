@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+// State
 import AuthContext from "./../store/auth-context";
+
+// axios
 import axios from "axios";
 
 export default function Login() {
+  const [showUser, setUser] = useState({ Email: "", Password: "" });
+  const [show, set] = useState("");
+
   const authCtx = useContext(AuthContext);
 
   const redirect = useNavigate();
-
-  const [showUser, setUser] = useState({ Email: "", Password: "" });
-
-  const [show, set] = useState("");
 
   const DataInp = (e) => {
     const name = e.target.name;
