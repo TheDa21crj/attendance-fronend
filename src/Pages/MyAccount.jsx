@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
-import AuthContext from "./../store/auth-context";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
+// state
+import AuthContext from "./../store/auth-context";
 
 export default function Attendence() {
   const authCtx = useContext(AuthContext);
