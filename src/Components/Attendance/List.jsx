@@ -21,10 +21,6 @@ export default function List() {
     }
   };
 
-  // useEffect(() => {
-  //   viewAtt();
-  // }, []);
-
   return (
     <div>
       <div onClick={viewAtt}>List</div>
