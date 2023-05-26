@@ -49,6 +49,7 @@ export default function List() {
                   <p>{val.roll}</p>
                   <p>{val.name}</p>
                   <p>{val.branch}</p>
+                  <p>{val.time}</p>
                   <p>{val.date}</p>
                 </div>
               );
