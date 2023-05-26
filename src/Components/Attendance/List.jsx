@@ -4,7 +4,7 @@ import React, { useEffect, useContext } from "react";
 import axios from "axios";
 
 // state
-import AuthContext from "./../store/auth-context";
+import AuthContext from "./../../store/auth-context";
 
 export default function List() {
   const authCtx = useContext(AuthContext);
@@ -12,14 +12,22 @@ export default function List() {
   const viewAtt = async () => {
     try {
       const res = await axios.get("/api/attendance/View", {
-        headers: { Authorization: `${authCtx.user}` },
+        headers: { Authorization: `${authCtx.token}` },
       });
-    } catch (error) {}
+
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
     viewAtt();
   }, []);
 
-  return <div>List</div>;
+  return (
+    <div>
+      <div>List</div>
+    </div>
+  );
 }
