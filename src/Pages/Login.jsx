@@ -115,7 +115,7 @@ export default function Login() {
       <div>
         <p className="text-center mt-5 text-white">
           Don't have an account?
-          <Link to="/signup">
+          <Link to="/Register">
             <span className="text-blue-500">Sign up</span>
           </Link>
         </p>
