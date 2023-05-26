@@ -21,6 +21,7 @@ export default function Attendence() {
       <p onClick={logout}>Logout</p>
       <br />
       <br />
+      <br />
     </div>
   );
 }
