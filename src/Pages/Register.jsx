@@ -1,10 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
+// state
 import AuthContext from "./../store/auth-context";
+
+// axios
 import axios from "axios";
 
 export default function Register() {
   const authCtx = useContext(AuthContext);
+
   const redirect = useNavigate();
 
   const [show, set] = useState("");
