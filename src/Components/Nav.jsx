@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 // state
-import AuthContext from "./store/auth-context";
+import AuthContext from "./../store/auth-context";
 
 // css
 import NCss from "./Css/Nav.module.css";
@@ -15,7 +15,7 @@ export default function Nav() {
         Nav
       </Link>
       <Link to="/Login" className="LinkStyle">
-        Login/Register
+        {authCtx.isLoggedIn ? "" : "Login/Register"}
       </Link>
     </div>
   );
