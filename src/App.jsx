@@ -18,6 +18,8 @@ import Attendence from "./Pages/Attendence";
 // state
 import AuthContext from "./store/auth-context";
 
+// axios
+import axios from "axios";
 // defaults baseURL
 axios.defaults.baseURL = "http://localhost:5000/";
 
