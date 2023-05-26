@@ -21,6 +21,7 @@ export default function List() {
       });
 
       if (res.data.message) {
+        console.log(res.data.message);
         setView(res.data.message);
       } else {
         console.log("Error");
@@ -35,6 +36,24 @@ export default function List() {
       <p className={Lc.Refresh} onClick={viewAtt}>
         Refresh
       </p>
+      <div className={Lc.TdivDiv}>
+        {view.length > 0 ? (
+          <>
+            {view.map((val, key) => {
+              return (
+                <div key={key} className={Lc.mapDiv}>
+                  <p>{val.roll}</p>
+                  <p>{val.name}</p>
+                  <p>{val.branch}</p>
+                  <p>{val.date}</p>
+                </div>
+              );
+            })}
+          </>
+        ) : (
+          "No Data"
+        )}
+      </div>
     </div>
   );
 }
