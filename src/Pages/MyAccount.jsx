@@ -6,6 +6,7 @@ import AuthContext from "./../store/auth-context";
 
 export default function Attendence() {
   const authCtx = useContext(AuthContext);
+
   const redirect = useNavigate();
 
   const logout = () => {
