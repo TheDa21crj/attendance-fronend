@@ -64,14 +64,7 @@ export default function Login() {
             res.data.token,
             10800000
           );
-          if (authCtx.target == null) {
-            redirect("/");
-          } else {
-            console.log(authCtx.target);
-            redirect(`/${authCtx.target}`);
-            authCtx.settarget(null);
-          }
-        } else {
+          redirect("/Attendence");
         }
       } catch (err) {
         console.error(err);
