@@ -21,13 +21,13 @@ export default function List() {
     }
   };
 
-  useEffect(() => {
-    viewAtt();
-  }, []);
+  // useEffect(() => {
+  //   viewAtt();
+  // }, []);
 
   return (
     <div>
-      <div>List</div>
+      <div onClick={viewAtt}>List</div>
     </div>
   );
 }
