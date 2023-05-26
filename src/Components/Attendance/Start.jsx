@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+
+// state
+import AuthContext from "./../store/auth-context";
 
 // Css
 import SCss from "./Css/Start.module.css";
 
 export default function Start(props) {
+  const authCtx = useContext(AuthContext);
+
   const setStartorStop = async (e, state) => {
     try {
       const res = await fetch(
@@ -17,7 +22,7 @@ export default function Start(props) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email: props.email,
+            email: authCtx.user.email,
             value: state,
           }),
         }
