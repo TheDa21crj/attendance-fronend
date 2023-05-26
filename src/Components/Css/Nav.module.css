@@ -3,7 +3,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.3)
+  );
+  backdrop-filter: blur(2px);
   box-shadow: 2px 2px 10px lightgray;
+  transition: all 0.3s;
+}
+
+.mDiv:hover {
+  backdrop-filter: blur(0px);
 }
 
 .imgMA {
