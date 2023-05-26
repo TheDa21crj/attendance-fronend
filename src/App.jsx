@@ -37,7 +37,7 @@ function App() {
             <Route path="/Attendence" element={<Attendence />} />
           )}
           {authCtx.isLoggedIn && (
-            <Route path="/Attendence" element={<MyAccount />} />
+            <Route path="/MyAccount" element={<MyAccount />} />
           )}
           {!authCtx.isLoggedIn && (
             <Route path="/Register" element={<Register />} />
