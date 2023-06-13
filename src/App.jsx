@@ -23,7 +23,7 @@ import AuthContext from "./store/auth-context";
 import axios from "axios";
 
 // defaults baseURL
-axios.defaults.baseURL = "http://localhost:5000/";
+axios.defaults.baseURL = process.env.VITE_Backend_Base;
 
 function App() {
   const authCtx = useContext(AuthContext);
