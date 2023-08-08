@@ -23,7 +23,7 @@ import AuthContext from "./store/auth-context";
 import axios from "axios";
 
 // defaults baseURL
-axios.defaults.baseURL = "https://attendance-re44.onrender.com";
+axios.defaults.baseURL = "http://localhost:5000";
 
 function App() {
   const authCtx = useContext(AuthContext);
