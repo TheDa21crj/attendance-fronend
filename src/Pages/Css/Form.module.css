@@ -1,0 +1,36 @@
+.mDIv {
+  margin: 50px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px 0px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  /* margin-top: 50px; */
+}
+
+.inputDiv {
+  width: 350px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.inputDiv > input {
+  width: 80%;
+  height: 40px;
+  margin: 5px;
+  padding-left: 5px;
+}
+
+.inputDiv > button {
+  width: 80%;
+  height: 40px;
+}

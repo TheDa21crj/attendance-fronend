@@ -12,7 +12,7 @@ export default function Nav() {
   return (
     <div className={NCss.mDiv}>
       <Link to="/" className="LinkStyle">
-        Nav
+        Attendance System
       </Link>
 
       {authCtx.isLoggedIn && (
@@ -26,7 +26,7 @@ export default function Nav() {
         </Link>
       ) : (
         <Link to="/Login" className="LinkStyle">
-          Login/Register
+          Login
         </Link>
       )}
     </div>

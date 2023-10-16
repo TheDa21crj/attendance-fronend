@@ -7,6 +7,8 @@ import AuthContext from "./../store/auth-context";
 // axios
 import axios from "axios";
 
+import RegisterStyle from "./Css/Form.module.css";
+
 export default function Register() {
   const authCtx = useContext(AuthContext);
 
@@ -93,8 +95,8 @@ export default function Register() {
   };
 
   return (
-    <>
-      <div>
+    <div className={RegisterStyle.form}>
+      <div className={RegisterStyle.inputDiv}>
         <input
           type="text"
           name="name"
@@ -104,7 +106,7 @@ export default function Register() {
           onChange={DataInp}
         />
       </div>
-      <div>
+      <div className={RegisterStyle.inputDiv}>
         <input
           type="email"
           name="email"
@@ -113,7 +115,7 @@ export default function Register() {
           onChange={DataInp}
         />
       </div>
-      <div className="mb-5">
+      <div className={RegisterStyle.inputDiv}>
         <input
           type="password"
           name="password"
@@ -124,20 +126,22 @@ export default function Register() {
         />
       </div>
 
-      <div>
+      <div className={RegisterStyle.inputDiv}>
         <button type="button" onClick={submit}>
           Sign Up
         </button>
 
         <div>{show}</div>
-
+      </div>
+      <div>
         <p>
           Already have an account?
-          <Link to="/Login">
-            <span>Login</span>
-          </Link>
+          <span>
+            {" "}
+            <Link to="/Login"> Login</Link>
+          </span>
         </p>
       </div>
-    </>
+    </div>
   );
 }
