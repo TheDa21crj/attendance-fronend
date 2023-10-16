@@ -20,6 +20,8 @@ export default function Register() {
     name: "",
     email: "",
     password: "",
+    roll: "",
+    branch: "",
   });
 
   const DataInp = (e) => {
@@ -44,19 +46,23 @@ export default function Register() {
   };
 
   const submit = async (e) => {
-    const { name, email, password } = showUser;
+    const { name, email, password, roll, branch } = showUser;
 
     if (
       name !== "" &&
       email !== "" &&
       password !== "" &&
       email.indexOf("@") > -1 &&
-      email.indexOf(".") !== -1
+      email.indexOf(".") !== -1 &&
+      Number(roll) > 0 &&
+      branch !== ""
     ) {
       const userObject = {
         name,
         email,
         password,
+        roll,
+        branch,
       };
       try {
         const res = await axios.post("/api/user/Register", userObject, {
@@ -122,6 +128,26 @@ export default function Register() {
           id="password"
           className="w-full rounded-md p-3"
           placeholder="Password"
+          onChange={DataInp}
+        />
+      </div>
+      <div className={RegisterStyle.inputDiv}>
+        <input
+          type="number"
+          name="roll"
+          id="roll"
+          className="w-full rounded-md p-3"
+          placeholder="roll"
+          onChange={DataInp}
+        />
+      </div>
+      <div className={RegisterStyle.inputDiv}>
+        <input
+          type="text"
+          name="branch"
+          id="branch"
+          className="w-full rounded-md p-3"
+          placeholder="branch"
           onChange={DataInp}
         />
       </div>
