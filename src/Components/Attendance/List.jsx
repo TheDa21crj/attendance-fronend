@@ -9,30 +9,6 @@ import AuthContext from "./../../store/auth-context";
 // css
 import Lc from "./Css/List.module.css";
 
-const dummyData = [
-  {
-    roll: 1,
-    name: "Tom",
-    branch: "EEE",
-    time: new Date().getHours() + ":" + new Date().getMinutes(),
-    date: new Date().toDateString(),
-  },
-  {
-    roll: 2,
-    name: "Dan",
-    branch: "ECE",
-    time: new Date().getHours() + ":" + new Date().getMinutes(),
-    date: new Date().toDateString(),
-  },
-  {
-    roll: 3,
-    name: "Pot",
-    branch: "ECS",
-    time: new Date().getHours() + ":" + new Date().getMinutes(),
-    date: new Date().toDateString(),
-  },
-];
-
 export default function List() {
   const [view, setView] = useState([]);
 
@@ -40,14 +16,13 @@ export default function List() {
 
   const viewAtt = async () => {
     try {
-      setView(dummyData);
-
       const res = await axios.get("/api/attendance/View", {
         headers: { Authorization: `${authCtx.token}` },
       });
 
-      if (res.data.message) {
-        console.log(res.data.message);
+      if (res.data.attandanceArr) {
+        setView(res.data.attandanceArr);
+        console.log(res.data.attandanceArr);
       } else {
         console.log("Error");
       }
