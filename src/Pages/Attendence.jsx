@@ -8,13 +8,8 @@ export default function Attendence() {
   return (
     <div>
       Attendence
-      <br />
-      <br />
       <Start />
       <List />
-      <br />
-      <br />
-      <br />
     </div>
   );
 }

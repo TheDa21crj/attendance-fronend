@@ -9,6 +9,30 @@ import AuthContext from "./../../store/auth-context";
 // css
 import Lc from "./Css/List.module.css";
 
+const dummyData = [
+  {
+    roll: 1,
+    name: "Tom",
+    branch: "EEE",
+    time: new Date().getHours() + ":" + new Date().getMinutes(),
+    date: new Date().toDateString(),
+  },
+  {
+    roll: 2,
+    name: "Dan",
+    branch: "ECE",
+    time: new Date().getHours() + ":" + new Date().getMinutes(),
+    date: new Date().toDateString(),
+  },
+  {
+    roll: 3,
+    name: "Pot",
+    branch: "ECS",
+    time: new Date().getHours() + ":" + new Date().getMinutes(),
+    date: new Date().toDateString(),
+  },
+];
+
 export default function List() {
   const [view, setView] = useState([]);
 
@@ -16,13 +40,14 @@ export default function List() {
 
   const viewAtt = async () => {
     try {
+      setView(dummyData);
+
       const res = await axios.get("/api/attendance/View", {
         headers: { Authorization: `${authCtx.token}` },
       });
 
       if (res.data.message) {
         console.log(res.data.message);
-        setView(res.data.message);
       } else {
         console.log("Error");
       }
@@ -37,20 +62,27 @@ export default function List() {
 
   return (
     <div>
-      <p className={Lc.Refresh} onClick={viewAtt}>
+      <button className={Lc.Refresh} onClick={viewAtt}>
         Refresh
-      </p>
+      </button>
       <div className={Lc.TdivDiv}>
+        <div className={Lc.mapDiv + " " + Lc.head}>
+          <div>Roll</div>
+          <div>Name</div>
+          <div>Branch</div>
+          <div>Time</div>
+          <div>Date</div>
+        </div>
         {view.length > 0 ? (
           <>
             {view.map((val, key) => {
               return (
                 <div key={key} className={Lc.mapDiv}>
-                  <p>{val.roll}</p>
-                  <p>{val.name}</p>
-                  <p>{val.branch}</p>
-                  <p>{val.time}</p>
-                  <p>{val.date}</p>
+                  <div>{val.roll}</div>
+                  <div>{val.name}</div>
+                  <div>{val.branch}</div>
+                  <div>{val.time}</div>
+                  <div>{val.date}</div>
                 </div>
               );
             })}

@@ -6,8 +6,35 @@
   margin-top: 30px;
 }
 
+.head {
+  font-weight: bold;
+  font-size: medium;
+}
+
+.head > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
 .mapDiv {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.mapDiv > div {
+  width: 150px;
+  text-align: center;
+  border: 1px solid grey;
+}
+
+.mapDiv > div:nth-child(even) {
+  background-color: #ededed;
+}
+
+.mapDiv > div:nth-child(odd) {
+  background-color: #f6f6e9;
 }

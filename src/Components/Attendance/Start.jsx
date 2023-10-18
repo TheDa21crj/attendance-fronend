@@ -38,9 +38,16 @@ export default function Start(props) {
   };
   return (
     <div>
-      <div className={SCss.mDIv}>
-        <p onClick={(e) => setStartorStop(e, "Start")}>Start</p>
-        <p onClick={(e) => setStartorStop(e, "Stop")}>Stop</p>
+      <div className={SCss.container}>
+        <button
+          className={SCss.btn}
+          onClick={(e) => setStartorStop(e, "Start")}
+        >
+          Start
+        </button>
+        <button className={SCss.btn} onClick={(e) => setStartorStop(e, "Stop")}>
+          Stop
+        </button>
       </div>
     </div>
   );
