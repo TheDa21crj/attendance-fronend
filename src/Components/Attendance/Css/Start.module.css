@@ -6,13 +6,41 @@
 }
 
 .container {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
   align-items: center;
+  justify-items: center;
+  margin: auto;
 }
 
 .btn {
-  height: 40px;
-  width: 150px;
+  height: 75px;
+  width: 75px;
   cursor: pointer;
+  border-radius: 50%;
+  border: none;
+}
+
+.btn:focus {
+  border: 2px dashed #84c989;
+  outline: none;
+}
+
+.btn:hover {
+  background: #cffcd2;
+}
+
+.btn:active {
+  background-color: #b9e7bc;
+}
+
+.mainContainer {
+  margin: 10px;
+  padding: 10px;
+  width: max-content;
+  border: 1px solid grey;
+}
+
+.mainContainer h4 {
+  margin: 10px;
 }

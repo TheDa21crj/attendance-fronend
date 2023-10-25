@@ -7,7 +7,7 @@ import AuthContext from "./../../store/auth-context";
 import SCss from "./Css/Start.module.css";
 import axios from "axios";
 
-export default function Start(props) {
+export default function Start({ refresh, setLoading }) {
   const authCtx = useContext(AuthContext);
 
   const setStartorStop = async (e, state) => {
@@ -16,39 +16,27 @@ export default function Start(props) {
         email: authCtx.user.email,
         value: state,
       });
-      // const res = await fetch(
-      //   "/api/attendance/StartorStopAttendance`,
-      //   {
-      //     method: "POST",
-      //     headers: {
-      //       Accept: "application/json",
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify({
-      //       email: authCtx.user.email,
-      //       value: state,
-      //     }),
-      //   }
-      // );
-      // const data = await res.json();
-      console.log(resp);
-      // if (data) {
-      //   console.log(data);
-      //   return;
-      // }
-    } catch (error) {
-      // console.log(error);
-      return;
+    } catch (err) {
+      console.error(err);
     }
   };
+
+  const handleRefresh = () => {
+    setLoading(true);
+    refresh();
+  };
   return (
-    <div>
+    <div className={SCss.mainContainer}>
+      <h4>Controls</h4>
       <div className={SCss.container}>
         <button className={SCss.btn} onClick={(e) => setStartorStop(e, true)}>
           Start
         </button>
         <button className={SCss.btn} onClick={(e) => setStartorStop(e, false)}>
           Stop
+        </button>
+        <button className={SCss.btn} onClick={handleRefresh}>
+          Refresh
         </button>
       </div>
     </div>
