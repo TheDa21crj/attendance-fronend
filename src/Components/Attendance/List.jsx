@@ -9,52 +9,28 @@ import AuthContext from "./../../store/auth-context";
 // css
 import Lc from "./Css/List.module.css";
 
-export default function List() {
-  const [view, setView] = useState([]);
-
-  const authCtx = useContext(AuthContext);
-
-  const viewAtt = async () => {
-    try {
-      const res = await axios.get("/api/attendance/View", {
-        headers: { Authorization: `${authCtx.token}` },
-      });
-
-      if (res.data.attandanceArr) {
-        setView(res.data.attandanceArr);
-        console.log(res.data.attandanceArr);
-      } else {
-        console.log("Error");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    viewAtt();
-  }, []);
-
+export default function List({ viewData, loading }) {
+  if (loading) return <div className={Lc.loading}>Loading...</div>;
   return (
     <div>
-      <button className={Lc.Refresh} onClick={viewAtt}>
+      {/* <button className={Lc.Refresh} onClick={viewAtt}>
         Refresh
-      </button>
+      </button> */}
       <div className={Lc.TdivDiv}>
-        <div className={Lc.mapDiv + " " + Lc.head}>
-          <div>Roll</div>
+        <div className={`${Lc.mapDiv} ${Lc.head}`}>
           <div>Name</div>
+          <div>Roll</div>
           <div>Branch</div>
           <div>Time</div>
           <div>Date</div>
         </div>
-        {view.length > 0 ? (
+        {viewData.length > 0 ? (
           <>
-            {view.map((val, key) => {
+            {viewData.map((val, key) => {
               return (
                 <div key={key} className={Lc.mapDiv}>
-                  <div>{val.roll}</div>
                   <div>{val.name}</div>
+                  <div>{val.roll}</div>
                   <div>{val.branch}</div>
                   <div>{val.time}</div>
                   <div>{val.date}</div>
