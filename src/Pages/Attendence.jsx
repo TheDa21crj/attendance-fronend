@@ -12,6 +12,7 @@ export default function Attendence() {
   const [loading, setLoading] = useState(true);
 
   const authCtx = useContext(AuthContext);
+  const [error, setError] = useState(false);
 
   const viewAtt = async () => {
     try {
@@ -22,10 +23,12 @@ export default function Attendence() {
       if (res.data.attandanceArr) {
         setView(res.data.attandanceArr);
         setLoading(false);
+        setError(false);
       } else {
-        console.log("Error");
+        console.error("Error occured");
       }
     } catch (error) {
+      setError(true);
       console.log(error);
     }
   };
@@ -37,10 +40,10 @@ export default function Attendence() {
   return (
     <div className="attendanceBox">
       <div className="controls">
-        <Start refresh={viewAtt} setLoading={setLoading} />
-        <AdminControls setLoading={setLoading} />
+        <Start refresh={viewAtt} setLoading={setLoading} err={error} />
+        <AdminControls setLoading={setLoading} err={error} />
       </div>
-      <List viewData={view} loading={loading} />
+      <List viewData={view} loading={loading} error={error} />
     </div>
   );
 }

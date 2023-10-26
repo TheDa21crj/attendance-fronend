@@ -9,7 +9,8 @@ import AuthContext from "./../../store/auth-context";
 // css
 import Lc from "./Css/List.module.css";
 
-export default function List({ viewData, loading }) {
+export default function List({ viewData, loading, error }) {
+  if (error) return <div className={Lc.loading}>Error fetching data</div>;
   if (loading) return <div className={Lc.loading}>Loading...</div>;
   return (
     <div>

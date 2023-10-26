@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 // state
 import AuthContext from "./../../store/auth-context";
@@ -6,11 +6,16 @@ import AuthContext from "./../../store/auth-context";
 // Css
 import SCss from "./Css/Start.module.css";
 import axios from "axios";
+import ControlButton from "../ControlButton";
 
 export default function AdminControls({ refresh, setLoading }) {
   const authCtx = useContext(AuthContext);
-
-  const handleClick = async (e, state) => {
+  const [error, setError] = useState({
+    message: "",
+    error: false,
+    index: 0,
+  });
+  const handleClick = async (e, state, index) => {
     try {
       const resp = await axios.post(
         "/api/attendance/toggleAdminAttendance",
@@ -20,24 +25,38 @@ export default function AdminControls({ refresh, setLoading }) {
         { headers: { Authorization: authCtx.token } }
       );
     } catch (err) {
+      setError({
+        error: true,
+        message: "Failed",
+        index: index,
+      });
       console.error(err);
     }
   };
 
-  const handleRefresh = () => {
-    setLoading(true);
-    refresh();
+  const setErrorState = (value) => {
+    setError((prev) => ({ ...prev, error: value }));
   };
+
   return (
     <div className={`${SCss.mainContainer} ${SCss.adminContainer}`}>
       <h4>Admin Controls</h4>
       <div className={`${SCss.container}`}>
-        <button className={SCss.btn} onClick={(e) => handleClick(e, true)}>
-          Start
-        </button>
-        <button className={SCss.btn} onClick={(e) => handleClick(e, false)}>
-          Stop
-        </button>
+        <ControlButton
+          errorObject={error}
+          text="Start"
+          clickHandler={(e) => handleClick(e, true, 0)}
+          setErrorState={setErrorState}
+          index={0}
+        />
+
+        <ControlButton
+          errorObject={error}
+          text="Stop"
+          clickHandler={(e) => handleClick(e, false, 1)}
+          setErrorState={setErrorState}
+          index={1}
+        />
       </div>
     </div>
   );
