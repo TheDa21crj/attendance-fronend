@@ -49,6 +49,7 @@ body {
   align-items: center;
   grid-template-columns: repeat(2, 200px);
   grid-template-rows: repeat(2, 80px);
+  grid-auto-rows: 80px;
   border: 1px solid grey;
 }
 
@@ -62,4 +63,8 @@ body {
 .accountBox > div:nth-child(odd) {
   background-color: #000;
   color: #fff;
+}
+
+.controls {
+  display: flex;
 }

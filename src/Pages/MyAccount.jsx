@@ -20,6 +20,10 @@ export default function Attendence() {
         <div>{authCtx.user.name}</div>
         <div>Email</div>
         <div>{authCtx.user.email}</div>
+        <div>Roll</div>
+        <div>{authCtx.user.roll}</div>
+        <div>Branch</div>
+        <div>{authCtx.user.branch}</div>
       </section>
 
       <button onClick={logout}>Logout</button>
