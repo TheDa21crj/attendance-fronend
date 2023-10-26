@@ -68,7 +68,9 @@ export default function Login() {
             info.email,
             info.avatar,
             res.data.token,
-            10800000
+            10800000,
+            info.branch,
+            info.roll
           );
 
           redirect("/Attendence");

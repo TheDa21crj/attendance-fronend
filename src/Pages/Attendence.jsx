@@ -5,6 +5,7 @@ import Start from "./../Components/Attendance/Start";
 import List from "./../Components/Attendance/List";
 import AuthContext from "../store/auth-context";
 import axios from "axios";
+import AdminControls from "../Components/Attendance/AdminControls";
 
 export default function Attendence() {
   const [view, setView] = useState([]);
@@ -32,9 +33,13 @@ export default function Attendence() {
   useEffect(() => {
     viewAtt();
   }, []);
+
   return (
     <div className="attendanceBox">
-      <Start refresh={viewAtt} setLoading={setLoading} />
+      <div className="controls">
+        <Start refresh={viewAtt} setLoading={setLoading} />
+        <AdminControls setLoading={setLoading} />
+      </div>
       <List viewData={view} loading={loading} />
     </div>
   );
