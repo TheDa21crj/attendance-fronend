@@ -9,6 +9,8 @@ const AuthContext = React.createContext({
     name: "",
     pic: "",
     email: "",
+    branch: "",
+    roll: "",
   },
   target: null,
   login: async (token) => {},
@@ -84,9 +86,25 @@ export const AuthContextProvider = (props) => {
     }
   }, []);
 
-  const loginHandler = (name, email, pic, token, expirationTime) => {
+  const loginHandler = (
+    name,
+    email,
+    pic,
+    token,
+    expirationTime,
+    branch,
+    roll
+  ) => {
+    console.trace("where");
     localStorage.setItem("token", token);
-    const setuserdata = { name: name, pic: pic, email: email };
+    console.log(branch);
+    const setuserdata = {
+      name: name,
+      pic: pic,
+      email: email,
+      branch: branch,
+      roll: roll,
+    };
 
     localStorage.setItem("user", JSON.stringify(setuserdata));
 

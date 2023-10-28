@@ -5,23 +5,66 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: grey;
+  font-family: "Red Hat Text";
 }
 
 #root {
   width: 100%;
   max-width: 1700px;
-  background-image: url("./assets/bg.jpeg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #fff;
+  /* background-image: url("./assets/bg.jpeg"); */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* color: #fff; */
 }
 
 .LinkStyle {
   text-decoration: none;
   color: inherit;
+}
+
+.attendanceBox {
+  margin: 10px;
+}
+
+.accountContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.accountContainer > button {
+  margin-top: 20px;
+  width: 200px;
+  height: 40px;
+}
+
+.accountBox {
+  /* border: 1px solid grey; */
+  margin: auto;
+  display: grid;
+  text-align: center;
+  align-items: center;
+  grid-template-columns: repeat(2, 200px);
+  grid-template-rows: repeat(2, 80px);
+  grid-auto-rows: 80px;
+  border: 1px solid grey;
+}
+
+.accountBox > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accountBox > div:nth-child(odd) {
+  background-color: #000;
+  color: #fff;
+}
+
+.controls {
+  display: flex;
 }

@@ -14,17 +14,19 @@ export default function Attendence() {
     authCtx.logout();
   };
   return (
-    <div>
-      <br />
-      <br />
-      <p>Name = {authCtx.user.name}</p>
-      <p>Email = {authCtx.user.email}</p>
-      <br />
-      <br />
-      <p onClick={logout}>Logout</p>
-      <br />
-      <br />
-      <br />
+    <div className="accountContainer">
+      <section className="accountBox">
+        <div>Name</div>
+        <div>{authCtx.user.name}</div>
+        <div>Email</div>
+        <div>{authCtx.user.email}</div>
+        <div>Roll</div>
+        <div>{authCtx.user.roll}</div>
+        <div>Branch</div>
+        <div>{authCtx.user.branch}</div>
+      </section>
+
+      <button onClick={logout}>Logout</button>
     </div>
   );
 }

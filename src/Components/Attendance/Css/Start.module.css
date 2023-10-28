@@ -4,3 +4,27 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  align-items: center;
+  justify-items: center;
+  margin: auto;
+}
+
+.mainContainer {
+  margin: 10px;
+  padding: 10px;
+  width: max-content;
+  border: 2px solid grey;
+  border-radius: 5px;
+}
+
+.mainContainer h4 {
+  margin: 10px;
+}
+
+.adminContainer {
+  border: 2px solid red;
+}

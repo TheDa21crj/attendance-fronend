@@ -1,46 +1,77 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 // state
 import AuthContext from "./../../store/auth-context";
 
 // Css
 import SCss from "./Css/Start.module.css";
+import axios from "axios";
+import ControlButton from "../ControlButton";
 
-export default function Start(props) {
+export default function Start({ refresh, setLoading, err }) {
   const authCtx = useContext(AuthContext);
+  const [error, setError] = useState({
+    message: "",
+    error: false,
+    index: 0,
+  });
 
-  const setStartorStop = async (e, state) => {
+  const handleClick = async (e, state, index) => {
     try {
-      const res = await fetch(
-        `${
-          import.meta.env.VITE_Backend_Base
-        }/api/attendance/StartorStopAttendance`,
+      const resp = await axios.post(
+        "/api/attendance/StartorStopAttendance",
         {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: authCtx.user.email,
-            value: state,
-          }),
-        }
+          email: authCtx.user.email,
+          value: state,
+        },
+        { headers: { Authorization: authCtx.token } }
       );
-      const data = await res.json();
-      if (data) {
-        console.log(data);
-        return;
-      }
-    } catch (error) {
-      return;
+    } catch (err) {
+      setError({
+        error: true,
+        message: "Failed",
+        index: index,
+      });
+      console.error(err);
     }
   };
+  const setErrorState = (value) => {
+    setError((prev) => ({ ...prev, error: value }));
+  };
+
+  const handleRefresh = () => {
+    setLoading(true);
+    refresh();
+  };
+
   return (
-    <div>
-      <div className={SCss.mDIv}>
-        <p onClick={(e) => setStartorStop(e, "Start")}>Start</p>
-        <p onClick={(e) => setStartorStop(e, "Stop")}>Stop</p>
+    <div className={SCss.mainContainer}>
+      <h4>Controls</h4>
+      <div className={`${SCss.container} ${SCss.inline}`}>
+        <div className={`${SCss.container}`}>
+          <ControlButton
+            errorObject={error}
+            text="Start"
+            clickHandler={(e) => handleClick(e, true, 0)}
+            setErrorState={setErrorState}
+            index={0}
+          />
+
+          <ControlButton
+            errorObject={error}
+            text="Stop"
+            clickHandler={(e) => handleClick(e, false, 1)}
+            setErrorState={setErrorState}
+            index={1}
+          />
+          <ControlButton
+            errorObject={error}
+            text="Refresh"
+            clickHandler={handleRefresh}
+            setErrorState={setErrorState}
+            index={2}
+          />
+        </div>
       </div>
     </div>
   );

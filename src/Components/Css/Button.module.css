@@ -1,0 +1,45 @@
+.btn {
+  height: 75px;
+  width: 75px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+}
+
+.btn:focus {
+  border: 2px dashed #84c989;
+  outline: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #cffcd2;
+}
+
+.btn:active {
+  background-color: #b9e7bc;
+}
+
+.error {
+  animation-name: blink;
+  animation-duration: 1s;
+  border: 2px dashed #ffbbbb !important;
+}
+
+@keyframes blink {
+  0% {
+    background-color: white;
+  }
+  25% {
+    background-color: #ffbbbb;
+  }
+  50% {
+    background-color: white;
+  }
+  75% {
+    background-color: #ffbbbb;
+  }
+  100% {
+    background-color: white;
+  }
+}

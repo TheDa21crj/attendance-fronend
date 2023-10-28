@@ -7,6 +7,8 @@ import AuthContext from "./../store/auth-context";
 // axios
 import axios from "axios";
 
+import LoginStyle from "./Css/Form.module.css";
+
 export default function Login() {
   const [showUser, setUser] = useState({ Email: "", Password: "" });
   const [show, set] = useState("");
@@ -66,7 +68,9 @@ export default function Login() {
             info.email,
             info.avatar,
             res.data.token,
-            10800000
+            10800000,
+            info.branch,
+            info.roll
           );
 
           redirect("/Attendence");
@@ -82,8 +86,8 @@ export default function Login() {
   };
 
   return (
-    <>
-      <div>
+    <div className={LoginStyle.form}>
+      <div className={LoginStyle.inputDiv}>
         <input
           type="email"
           name="Email"
@@ -92,7 +96,7 @@ export default function Login() {
           onChange={DataInp}
         />
       </div>
-      <div>
+      <div className={LoginStyle.inputDiv}>
         <input
           type="password"
           name="Password"
@@ -102,7 +106,7 @@ export default function Login() {
         />
       </div>
       <div>{show}</div>
-      <div>
+      <div className={LoginStyle.inputDiv}>
         <button
           type="button"
           className="w-[95%] mt-5 bg-[#ff673a] text-white rounded-md py-3 font-bold text-xl"
@@ -111,14 +115,15 @@ export default function Login() {
           Login
         </button>
       </div>
-      <div>
+      <div className={LoginStyle.inputDiv}>
         <p className="text-center mt-5 text-white">
           Don't have an account?
-          <Link to="/Register">
-            <span className="text-blue-500">Sign up</span>
-          </Link>
+          <span className="text-blue-500">
+            {" "}
+            <Link to="/Register">Sign up</Link>
+          </span>
         </p>
       </div>
-    </>
+    </div>
   );
 }

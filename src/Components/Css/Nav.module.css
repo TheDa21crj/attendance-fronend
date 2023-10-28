@@ -1,8 +1,10 @@
 .mDiv {
   padding: 20px 50px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: start;
   align-items: center;
+
   background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.5),
@@ -23,4 +25,10 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+
+.mDiv > a:last-child {
+  grid-column: 5/6;
+  justify-self: right;
+  align-self: right;
 }

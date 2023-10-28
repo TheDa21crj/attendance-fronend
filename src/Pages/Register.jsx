@@ -7,6 +7,8 @@ import AuthContext from "./../store/auth-context";
 // axios
 import axios from "axios";
 
+import RegisterStyle from "./Css/Form.module.css";
+
 export default function Register() {
   const authCtx = useContext(AuthContext);
 
@@ -18,6 +20,8 @@ export default function Register() {
     name: "",
     email: "",
     password: "",
+    roll: "",
+    branch: "",
   });
 
   const DataInp = (e) => {
@@ -42,19 +46,23 @@ export default function Register() {
   };
 
   const submit = async (e) => {
-    const { name, email, password } = showUser;
+    const { name, email, password, roll, branch } = showUser;
 
     if (
       name !== "" &&
       email !== "" &&
       password !== "" &&
       email.indexOf("@") > -1 &&
-      email.indexOf(".") !== -1
+      email.indexOf(".") !== -1 &&
+      Number(roll) > 0 &&
+      branch !== ""
     ) {
       const userObject = {
         name,
         email,
         password,
+        roll,
+        branch,
       };
       try {
         const res = await axios.post("/api/user/Register", userObject, {
@@ -93,8 +101,8 @@ export default function Register() {
   };
 
   return (
-    <>
-      <div>
+    <div className={RegisterStyle.form}>
+      <div className={RegisterStyle.inputDiv}>
         <input
           type="text"
           name="name"
@@ -104,7 +112,7 @@ export default function Register() {
           onChange={DataInp}
         />
       </div>
-      <div>
+      <div className={RegisterStyle.inputDiv}>
         <input
           type="email"
           name="email"
@@ -113,7 +121,7 @@ export default function Register() {
           onChange={DataInp}
         />
       </div>
-      <div className="mb-5">
+      <div className={RegisterStyle.inputDiv}>
         <input
           type="password"
           name="password"
@@ -123,21 +131,43 @@ export default function Register() {
           onChange={DataInp}
         />
       </div>
+      <div className={RegisterStyle.inputDiv}>
+        <input
+          type="number"
+          name="roll"
+          id="roll"
+          className="w-full rounded-md p-3"
+          placeholder="roll"
+          onChange={DataInp}
+        />
+      </div>
+      <div className={RegisterStyle.inputDiv}>
+        <input
+          type="text"
+          name="branch"
+          id="branch"
+          className="w-full rounded-md p-3"
+          placeholder="branch"
+          onChange={DataInp}
+        />
+      </div>
 
-      <div>
+      <div className={RegisterStyle.inputDiv}>
         <button type="button" onClick={submit}>
           Sign Up
         </button>
 
         <div>{show}</div>
-
+      </div>
+      <div>
         <p>
           Already have an account?
-          <Link to="/Login">
-            <span>Login</span>
-          </Link>
+          <span>
+            {" "}
+            <Link to="/Login"> Login</Link>
+          </span>
         </p>
       </div>
-    </>
+    </div>
   );
 }
